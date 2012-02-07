@@ -8,8 +8,6 @@ class Mail::Cache
   attr_accessor :settings
 
   def deliver!(mail)
-    puts "deliver called in Mail::Cache"
-    puts mail.inspect
     @deliveries << mail
     File.open(@settings[:cache_path], 'w') do |file|
       Marshal.dump(@deliveries, file)
