@@ -21,7 +21,9 @@ module RailsCacheDeliveryMethod
 
       def clear_cache
         FileUtils.rm(CACHE_PATH) if File.exists?(CACHE_PATH)
-        FileUtils.touch CACHE_PATH
+        #FileUtils.touch CACHE_PATH
+        
+        `touch #{CACHE_PATH}`
       end
     end
   end
